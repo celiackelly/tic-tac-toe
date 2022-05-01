@@ -44,8 +44,8 @@ class Game {
     clearBoard() {
         this.turn = 0
         divs.forEach(div => div.textContent = '')
-        xChoices = []
-        oChoices = []
+        this.xChoices = []
+        this.oChoices = []
     }
 }
 
@@ -55,3 +55,4 @@ const divs = document.querySelectorAll('div')
 divs.forEach(div => div.addEventListener('click', game.markSquare.bind(game)))
 
 document.querySelector('button').addEventListener('click', game.clearBoard.bind(game))
+
