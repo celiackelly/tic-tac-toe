@@ -8,6 +8,8 @@ class Game {
     }
 
     markSquare(event) {
+
+        // 2-Player Game
         if (event.target.textContent === 'X' || event.target.textContent === 'O'){
           alert("Error - square is already filled")
         } else {
@@ -20,11 +22,44 @@ class Game {
                 this.turn++
                 this.oChoices.push(Number(event.target.id))
             }
-        } 
-        this.checkWin()
+        }
+
+        //Fisher-Yates Shuffle
+        // const shuffle = array => {
+        //     let m = array.length, t, i;
+          
+        //     // While there remain elements to shuffle…
+        //     while (m) {
+          
+        //       // Pick a remaining element…
+        //       i = Math.floor(Math.random() * m--);
+          
+        //       // And swap it with the current element.
+        //       t = array[m];
+        //       array[m] = array[i];
+        //       array[i] = t;
+        //     }
+        //     return array;
+        //   }
+        
+        //BAD AI Game
+        // if (event.target.textContent === 'X' || event.target.textContent === 'O'){
+        //     alert("Error - square is already filled")
+        //   } else {
+        //         //Player turn 
+        //         event.target.textContent = 'X'
+        //         this.turn++
+        //         this.xChoices.push(Number(event.target.id))
+
+        //         //Computer turn 
+        //         const emptyDivs = Array.from(document.querySelectorAll('div')).filter(div => !div.textContent)
+        //         const randomSquare = shuffle(emptyDivs).pop()
+        //         randomSquare.textContent = 'O'
+        //         this.turn++
+        //         this.oChoices.push(Number(randomSquare.id))
+        //   }
+        // this.checkWin()
     }
-
-
 
     checkWin() {
         this.xChoices.sort((a, b) => a - b)
