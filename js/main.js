@@ -42,14 +42,23 @@ class Game {
     }
 
     clearBoard() {
+        this.gameType = '2-player'
         this.turn = 0
-        divs.forEach(div => div.textContent = '')
         this.xChoices = []
         this.oChoices = []
+        divs.forEach(div => div.textContent = '')
+    }
+
+    changeGameType(event) {
+        this.clearBoard()
+        this.gameType = event.target.value
     }
 }
 
-const game = new Game()
+const game = new Game('2-player')
+
+const gameTypeInputs = document.querySelectorAll('input[name="game-type"]')
+gameTypeInputs.forEach(input => input.addEventListener('change', game.changeGameType.bind(game)))
 
 const divs = document.querySelectorAll('div')
 divs.forEach(div => div.addEventListener('click', game.markSquare.bind(game)))
