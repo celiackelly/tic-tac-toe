@@ -5,7 +5,7 @@ const arr = divs.forEach(div => {
 
 document.querySelector('button').addEventListener('click', clearBoard)
 
-let turn = 2
+let turn = 0
 let xChoices = []
 let oChoices = []
 
@@ -24,7 +24,7 @@ function markSquare(event) {
       event.target.classList.remove('empty') 
       oChoices.push(Number(event.target.id))
     }
-  }if(turn === 12){
+  }if(turn === 9){
     alert("Game is over - you tied")
   }  
   checkWin()
