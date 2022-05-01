@@ -16,12 +16,10 @@ function markSquare(event) {
     if(turn % 2 === 0 ){
       event.target.textContent = 'X'
       turn++
-      event.target.classList.remove('empty') 
       xChoices.push(Number(event.target.id))
     }else{
       event.target.textContent = 'O'
       turn++
-      event.target.classList.remove('empty') 
       oChoices.push(Number(event.target.id))
     }
   }if(turn === 9){
