@@ -20,11 +20,11 @@ class Game {
                 this.turn++
                 this.oChoices.push(Number(event.target.id))
             }
-        } if (this.turn === 9) {
-          alert("Game is over - you tied!")
-        }  
+        } 
         this.checkWin()
-      }
+    }
+
+
 
     checkWin() {
         this.xChoices.sort((a, b) => a - b)
@@ -37,7 +37,9 @@ class Game {
                 alert('Player X wins! Please press Reset.')
             } else if (condition.every(square => this.oChoices.includes(square))){
                 alert('Player O wins! Please press Reset.')
-            } 
+            } else if (this.turn === 9) {
+                alert("Game is over - you tied!")
+            }
         })
     }
 
